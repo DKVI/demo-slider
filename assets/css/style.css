@@ -1,0 +1,353 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,200;0,400;0,600;0,700;1,200&family=Inconsolata:wght@200&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;1,200;1,300;1,400;1,500&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+.loading-screen {
+    width:100%;
+    height: 100%;
+    background: rgb(238,174,202);
+    background: linear-gradient(74deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 52%, rgba(148,187,233,1) 86%);
+    display: flex;    
+}
+
+
+
+.loading-bar {
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 20px;
+    display: flex;
+}
+
+.loading-container {
+    margin: auto;
+}
+
+.comment {
+    text-align: center;
+    color: white;
+}
+
+.loading-line {
+    margin-top: 20px;
+    height: 30px;
+    width: 400px;
+    border: 4px solid white;
+
+}
+
+
+.loading-inner {
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.3s;
+}
+
+.loading-percent {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+
+#GOW, #COD, #MK11, #TK7 {
+    width: 100%;
+    height: 100%;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+.main {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: 40px 60px;
+    overflow: hidden;
+}
+
+
+#GOW .main {
+    background-image: url(/assets/imgs/gow-bg.jpg);
+}
+
+
+#COD .main {
+    background-image: url(/assets/imgs/cod-bg.jpg);
+}
+
+
+#MK11 .main {
+    background-image: url(/assets/imgs/mk11-bg.jpg);
+}
+
+
+#TK7 .main {
+    background-image: url(/assets/imgs/tk7-bg.png);
+}
+
+
+
+.model {
+    height: 103%;
+    position: absolute;
+    left: 60%;
+    transform: translateX(-50%);
+    bottom: 0;
+    display: flex;
+    z-index: 1;
+    animation: scaleZoom ease-in-out 0.3s;
+    transition: all 0.3s;
+}
+
+
+@keyframes scaleZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.7) translateX(-50%);
+    }    
+    to {
+        opacity: 1;
+        transform: translateX(-50%);
+    }
+}
+
+
+.model img {
+    align-self: flex-end;
+    height: inherit;
+    filter: drop-shadow(4px 4px 11px rgb(66, 66, 66));
+}
+
+.overlay {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    position: fixed;
+    width: 85%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 50%;
+    opacity: 0.6;
+    animation: leftToRight ease-in 0.7s;
+    transition: all 0.7s;
+    border: none;
+}
+
+.content {
+    left: 5%;
+    width: 600px;
+    position: absolute;
+}
+
+
+
+
+.content {
+    width: 600px;
+    position: absolute;
+    top: 50px;
+    z-index: 100;
+}
+
+
+.content h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    z-index: 10;
+    width: 100%;
+    color: white;
+    filter: drop-shadow(4px 4px 11px rgb(66, 66, 66));
+    text-align: center;
+}
+
+
+.content h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid rgb(0, 0, 0); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .06em; /* Adjust as needed */
+    animation: 
+      typing 2s steps(40, end),
+      blink-caret .5s step-end infinite;
+
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(255, 255, 255); }
+  }
+
+.des {
+    overflow: hidden;
+}
+
+.content p {
+    margin-top: 20px;
+    width: 100%;
+    font-size: 16;
+    color: rgb(255, 255, 255);
+    filter: drop-shadow(4px 4px 11px rgb(20, 20, 20));
+    z-index: 10;
+    animation: downToTop ease-in-out 0.5s;
+    transition: all 0.5s;
+    background-color: transparent;
+}
+
+
+
+@keyframes downToTop {
+    from {
+        transform: translateY(160px);
+    }
+    to {
+        transform: none;
+    }
+}
+
+
+
+.content .video {
+    margin-top: 20px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+.video iframe {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    margin: auto;
+    width: 100%;
+    opacity: 1;
+    animation: Opacity ease 0.5s;
+    transition: all 0.5s;
+}
+
+@keyframes Opacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.slide-bar {
+    height: 100%;
+    width: 200px;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 2%;
+    padding: 40px 0;
+    z-index: 100;
+}
+
+
+.slide-bar .container {
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.container .op {
+    padding: 10px 0;
+    width: 100%;
+    height: 25%;
+    background-color: transparent;
+}
+
+
+.container .op .op-content {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+}
+
+
+.img-1 {
+    background: url(/assets/imgs/gow-poster.jpg);   
+}
+
+.img-2 {
+    background: url(/assets/imgs/cod-poster.jpg);   
+}
+
+.img-3 {
+    background: url(/assets/imgs/mk11-poster.jpg);   
+}
+
+
+.img-4 {
+    background: url(/assets/imgs/tk7-poster.jpg);   
+}
+
+
+
+.container .op .op-content.active {
+    border: 5px solid #ccc;
+}
+
+
+@keyframes leftToRight {
+    from {
+        left: -800px;
+    }
+
+    to {
+        left: 0;
+    }
+}
